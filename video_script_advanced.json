@@ -1,0 +1,242 @@
+{
+  "resolution": "full-hd",
+  "quality": "high",
+  "audio": {
+    "comment": "Background music for the video",
+    "src": "c:\\Users\\ASUS\\Desktop\\Developed_by_me\\Python-Video-Editor\\Assets\\asphalt-sizzle-322468.mp3",
+    "volume": 0.35
+  },
+  "scenes": [
+    {
+      "comment": "Scene #1: Title Card - Animated Intro",
+      "duration": 7.0, 
+      "transition": {
+        "style": "fade",
+        "duration": 1.0
+      },
+      "elements": [
+        {
+          "comment": "Background Image - Slow Zoom In",
+          "type": "image",
+          "src": "https://images.pexels.com/photos/33041/antelope-canyon-lower-canyon-arizona.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "z_index": 0,
+          "animation": {
+            "start": { "size": {"width": "100%"}, "position": "center", "opacity": 1 },
+            "end":   { "size": {"width": "115%"}, "position": "center", "opacity": 1 }
+          }
+        },
+        {
+            "comment": "Dark overlay for better text readability",
+            "type": "text", 
+            "text": " ", 
+            "bg_color": "black",
+            "z_index": 1,
+            "position": "center",
+            "size": {"width": "100%", "height": "100%"}, 
+            "opacity": 0.4 
+        },
+        {
+          "comment": "Main Title - Fades In & Slides Down Slightly",
+          "type": "text",
+          "text": "Amazing Adventures",
+          "fontsize": 90,
+          "font": "Impact", 
+          "color": "white",
+          "stroke_color": "#222222",
+          "stroke_width": 3,
+          "z_index": 10,
+          "animation": {
+            "start": { "opacity": 0, "position": ["50%", "40%"] },
+            "end":   { "opacity": 1, "position": ["50%", "45%"] }
+          }
+        },
+         {
+          "comment": "Subtitle - Appears Later, Fades In",
+          "type": "text",
+          "text": "Travel Highlights 2025",
+          "fontsize": 45,
+          "font": "Arial",
+          "color": "#DDDDDD",
+          "z_index": 10,
+           "animation": {
+             
+            "start": { "opacity": 0, "position": ["50%", "58%"] }, 
+            "end":   { "opacity": 1, "position": ["50%", "58%"] }  
+            
+            
+          }
+        }
+      ]
+    },
+    {
+      "comment": "Scene #2: Beach Location with TTS",
+      
+      "transition": {
+        "style": "wiperight", 
+        "duration": 1.2
+       },
+      "voiceover": {
+        "tts": {
+           "text": "Our first stop was this stunning tropical beach. The clear water and gentle waves were incredibly relaxing. We spent hours just soaking up the sun and enjoying the peaceful atmosphere.",
+           "language": "en-uk" 
+        },
+        "volume": 1.0
+      },
+      "elements": [
+        {
+            "comment": "Main Beach Video",
+            "type": "video",
+            "src": "c:\\Users\\ASUS\\Desktop\\Developed_by_me\\Python-Video-Editor\\Assets\\sample_video.mp4",
+            "z_index": 0,
+            "position": "center",
+            "size": {"width": "100%"} 
+        },
+        {
+           "comment": "Location Label - Bottom Left",
+           "type": "text",
+           "text": "Sunny Beach Paradise",
+           "fontsize": 45,
+           "font": "Arial",
+           "color": "white",
+           "stroke_color": "black",
+           "stroke_width": 2,
+           "position": ["5%", "95%"], 
+           "align": "bottom_left", 
+           "z_index": 5
+        }
+      ]
+    },
+    {
+      "comment": "Scene #3: Mountain Location with Local VO and Ken Burns",
+       
+      "transition": {
+         "style": "slideup",
+         "duration": 1.0
+      },
+      "voiceover": {
+        "src": "c:\\Users\\ASUS\\Desktop\\Developed_by_me\\Python-Video-Editor\\Assets\\merry_christmas.mp3", 
+        "volume": 0.95
+      },
+      "elements": [
+         {
+            "comment": "Mountain Image - Slow Pan/Zoom (Ken Burns)",
+            "type": "image",
+            "src": "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 
+            "z_index": 0,
+            "animation": {
+              "start": { "size": {"width": "120%"}, "position": ["40%", "40%"], "opacity": 1 }, 
+              "end":   { "size": {"width": "100%"}, "position": ["50%", "50%"], "opacity": 1 }  
+            }
+        },
+        {
+           "comment": "Location Label - Rotated slightly",
+           "type": "text",
+           "text": "Majestic Peaks",
+           "fontsize": 60,
+           "font": "Impact",
+           "color": "#FFFFFF",
+           "bg_color": "#00000088", 
+           "z_index": 1,
+           "position": [100, 100], 
+           "align": "top_left",
+           "rotation": -5 
+        }
+      ]
+    },
+     {
+      "comment": "Scene #4: Information / Text Focus",
+      "duration": 8.0, 
+      "transition": {
+         "style": "circleopen", 
+         "duration": 1.5
+      },
+      "elements": [
+         {
+            "comment": "Subtle Background Pattern",
+            "type": "image",
+            "src": "https://assets.json2video.com/assets/images/london-02.jpg", 
+            "z_index": 0,
+            "position": "center",
+            "size": {"width": "100%"}
+         },
+         {
+             "comment": "Info Title",
+             "type": "text",
+             "text": "Trip Details",
+             "fontsize": 70, "font": "Arial-Bold", "color": "#333333",
+             "position": ["50%", "15%"], 
+             "align": "center",
+             "z_index": 1
+         },
+         {
+             "comment": "Info Point 1",
+             "type": "text",
+             "text": "- Visited 3 Countries\n- 15 Days of Travel", 
+             "fontsize": 40, "font": "Arial", "color": "#444444",
+             "position": ["10%", "30%"],
+             "align": "top_left",
+             "z_index": 1
+         },
+         {
+             "comment": "Info Point 2",
+             "type": "text",
+             "text": "- Best Experience: Mountain Hike\n- Favorite Food: Local Curry",
+             "fontsize": 40, "font": "Arial", "color": "#444444",
+             "position": ["10%", "55%"], 
+             "align": "top_left",
+             "z_index": 1
+         },
+         {
+            "comment": "Decorative Separator (using text)",
+            "type": "text",
+            "text": "--------------------",
+            "fontsize": 30, "font": "Arial", "color": "#CCCCCC",
+            "position": ["50%", "80%"],
+            "align": "center",
+            "z_index": 1
+         }
+      ]
+    },
+    {
+        "comment": "Scene #5: End Card / Call to Action",
+        "duration": 6.0,
+        "transition": {"style": "fade", "duration": 1.5 },
+        "elements": [
+            {
+                "comment": "End card background - reuse from scene 1?",
+                 "type": "image",
+                "src": "https://images.pexels.com/photos/33041/antelope-canyon-lower-canyon-arizona.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "z_index": 0,
+                "position": "center",
+                "size": {"width": "100%"},
+                "opacity": 0.6 
+            },
+            {
+                "comment": "Call to Action Text - Animated Fade In",
+                "type": "text",
+                "text": "Start Your Adventure!",
+                "fontsize": 80,
+                "font": "Arial", 
+                "color": "white",
+                 "stroke_color": "black", "stroke_width": 1,
+                "z_index": 10,
+                 "animation": {
+                    "start": { "opacity": 0, "position": "center" },
+                    "end":   { "opacity": 1, "position": "center" }
+                }
+            },
+            {
+                "comment": "Website URL (Optional)",
+                "type": "text",
+                "text": "www.exampletravel.com",
+                "fontsize": 30,
+                "font": "Arial",
+                "color": "#EEEEEE",
+                "z_index": 5,
+                "position": ["50%", "70%"],
+                "align": "center"
+            }
+        ]
+    }
+  ]
+}
