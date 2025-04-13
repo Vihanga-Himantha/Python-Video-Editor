@@ -22,7 +22,7 @@ A JSON-based video editing tool that allows you to create videos by defining sce
 ## Requirements
 
 - Python 3.6+
-- MoviePy
+- MoviePy==1.0.3
 - Pillow
 - FFmpeg
 - Requests
@@ -39,7 +39,7 @@ cd json-video-editor
 2. Install the required packages:
 
 ```bash
-pip install moviepy pillow requests
+pip install moviepy==1.0.3 pillow requests
 ```
 
 3. Install FFmpeg (if not already installed):
