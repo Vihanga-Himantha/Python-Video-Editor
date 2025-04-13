@@ -1,20 +1,23 @@
-# JSON-based Video Editor
+# Python Video Editor
 
-A Python-based video editor that creates videos from JSON configurations. This tool allows you to create videos by defining scenes, transitions, and elements in a JSON file.
+A JSON-based video editing tool that allows you to create videos by defining scenes, transitions, and audio elements.
 
 ## Features
 
 - Create videos from JSON configuration
-- Support for multiple resolutions (SD, HD, Full-HD, 4K)
-- Quality presets (low, medium, high, production)
-- Scene transitions with customizable duration
+- Support for multiple resolutions (Full-HD supported)
+- Quality presets (low, medium, high)
+- Scene transitions with customizable duration and styles
 - Support for various media types:
   - Images with auto-resizing
-  - Videos with resolution adjustment
-  - Text overlays with customizable fonts and colors
-- Background audio support with auto-looping and fade effects
-- Temporary asset management
-- Progress tracking during video creation
+- Audio features:
+  - Background music support with volume control
+  - Scene-specific voiceovers
+  - Multiple audio file format support
+- Transition effects:
+  - Circle open
+  - Wipe up
+  - Fade
 
 ## Requirements
 
@@ -46,32 +49,9 @@ pip install moviepy pillow requests
 
 ## Usage
 
-1. Create a JSON configuration file (e.g., `video_script.json`):
-
-```json
-{
-  "resolution": "full-hd",
-  "quality": "high",
-  "scenes": [
-    {
-      "comment": "Scene #1",
-      "transition": {
-        "style": "fade",
-        "duration": 1.5
-      },
-      "elements": [
-        {
-          "type": "image",
-          "src": "https://example.com/image.jpg",
-          "duration": 5
-        }
-      ]
-    }
-  ]
-}
-```
-
-2. Run the script:
+1. Prepare your video_script.json with desired scenes and audio configuration.
+2. Place your audio files in the Assets directory.
+3. Run the script:
 
 ```bash
 python create_video.py
@@ -81,45 +61,81 @@ python create_video.py
 
 ### Global Settings
 
-- `resolution`: "sd" | "hd" | "full-hd" | "4k"
-- `quality`: "low" | "medium" | "high" | "production"
+```json
+{
+  "resolution": "full-hd",
+  "quality": "high"
+}
+```
+
+### Audio Configuration
+
+The project supports two types of audio:
+
+1. Global background audio:
+
+```json
+{
+  "audio": {
+    "src": "path/to/audio.mp3",
+    "volume": 0.5
+  }
+}
+```
+
+2. Scene-specific voiceovers:
+
+```json
+{
+  "voiceover": {
+    "src": "path/to/voiceover.mp3",
+    "volume": 1.0
+  }
+}
+```
 
 ### Scene Structure
 
-- `comment`: Scene description
-- `transition`: Transition effects
-  - `style`: Currently supports "fade" (other styles approximated as crossfade)
-  - `duration`: Transition duration in seconds
-- `elements`: Array of media elements
-  - Image Element:
-    ```json
+Each scene can include:
+
+- Comments for description
+- Transitions between scenes (circleopen, wipeup, fade)
+- Voiceover audio
+- Visual elements
+
+Example scene:
+
+```json
+{
+  "comment": "Scene description",
+  "transition": {
+    "style": "circleopen|wipeup|fade",
+    "duration": 1.5
+  },
+  "voiceover": {
+    "src": "path/to/voiceover.mp3",
+    "volume": 1.0
+  },
+  "elements": [
     {
       "type": "image",
-      "src": "URL or path",
-      "duration": seconds
+      "src": "image_url",
+      "duration": 5
     }
-    ```
-  - Video Element:
-    ```json
-    {
-      "type": "video",
-      "src": "URL or path",
-      "duration": seconds (optional)
-    }
-    ```
-  - Text Element:
-    ```json
-    {
-      "type": "text",
-      "text": "Your text",
-      "duration": seconds,
-      "fontsize": 70,
-      "font": "Arial",
-      "color": "white",
-      "bg_color": "transparent",
-      "position": "center"
-    }
-    ```
+  ]
+}
+```
+
+## Project Structure
+
+```
+├── create_video.py          # Main video creation script
+├── video_script.json        # Video configuration file
+├── Assets/                  # Audio assets directory
+│   ├── background music
+│   └── voiceovers
+└── README.md
+```
 
 ## Contributing
 

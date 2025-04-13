@@ -1,13 +1,20 @@
-
 {
   "resolution": "full-hd",
   "quality": "high",
+  "audio": {
+    "src": "Assets/asphalt-sizzle-322468.mp3", 
+    "volume": 0.5 
+  },
   "scenes": [
     {
-      "comment": "Scene #1",
+      "comment": "Scene #1: Introduction",
       "transition": {
         "style": "circleopen",
         "duration": 1.5
+      },
+      "voiceover": {
+        "src": "Assets/merry-christmas-to-all-to-all-a-good-night-santa-voice-david-h-m-lambert-1-1-00-06.mp3",
+        "volume": 1.0 
       },
       "elements": [
         {
@@ -18,11 +25,12 @@
       ]
     },
     {
-      "comment": "Scene #2",
+      "comment": "Scene #2: Details",
       "transition": {
-        "style": "wipeup",
+        "style": "wipeup", 
         "duration": 1.5
       },
+      
       "elements": [
         {
           "type": "image",
@@ -32,10 +40,14 @@
       ]
     },
     {
-      "comment": "Scene #3",
+      "comment": "Scene #3: Conclusion",
       "transition": {
-        "style": "fade",
+        "style": "fade", 
         "duration": 1.5
+      },
+      "voiceover": { 
+        "src": "Assets/uncanny-valley-ai-creepy-speech-slowing-down-jam-fx-1-00-12.mp3",
+        "volume": 0.9
       },
       "elements": [
         {
