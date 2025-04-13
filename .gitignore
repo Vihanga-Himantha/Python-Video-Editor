@@ -35,10 +35,10 @@ ENV/
 
 # Project specific
 temp_video_assets/
-*.mp4
-*.m4a
-*.wav
-*.mp3
+#*.mp4
+#*.m4a
+#*.wav
+#*.mp3
 
 # System
 .DS_Store
