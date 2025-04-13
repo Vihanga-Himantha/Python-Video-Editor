@@ -1,15 +1,17 @@
 {
   "resolution": "full-hd",
   "quality": "high",
+
   "audio": {
-    "src": "Assets/asphalt-sizzle-322468.mp3", 
+    "src": "Assets/asphalt-sizzle-322468.mp3",
     "volume": 0.5 
   },
+
   "scenes": [
     {
       "comment": "Scene #1: Introduction",
       "transition": {
-        "style": "circleopen",
+        "style": "circleopen", 
         "duration": 1.5
       },
       "voiceover": {
@@ -30,7 +32,6 @@
         "style": "wipeup", 
         "duration": 1.5
       },
-      
       "elements": [
         {
           "type": "image",
@@ -45,7 +46,7 @@
         "style": "fade", 
         "duration": 1.5
       },
-      "voiceover": { 
+      "voiceover": {
         "src": "Assets/uncanny-valley-ai-creepy-speech-slowing-down-jam-fx-1-00-12.mp3",
         "volume": 0.9
       },
