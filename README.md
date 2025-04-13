@@ -264,3 +264,46 @@ Used inside the `animation` object. Can contain any combination of the following
 | `rotation` | Number       | Rotation (degrees) at this state.                                                                                                                                                                         |
 
 ## Project Structure Example
+
+YOUR_PROJECT_FOLDER/
+├── create_video_final_v3.py # The main Python script
+├── video_script_advanced.json # Your video definition file
+├── Assets/ # Directory for YOUR local media files
+│ ├── music.mp3
+│ ├── logo.png
+│ ├── scene1_vo.wav
+│ └── sample_video.mp4
+├── asset_cache/ # Automatically created for downloaded files
+│ └── ...cached files...
+├── temp_video_assets_adv/ # Automatically created and deleted during runtime
+└── venv/ # Your Python virtual environment (recommended)
+└── ...
+
+## Known Limitations & Issues
+
+- **Advanced Transitions:** All specified transition `style`s currently render as simple **crossfades**. Implementing wipes, slides, etc., requires significant code changes (likely using masking or direct FFmpeg commands).
+- **Ken Burns Effect:** The JSON supports the structure (`ken_burns` key), but the effect logic is a **placeholder** in the Python code and is not currently applied.
+- **Advanced Audio Ducking:** The script only applies a simple volume reduction factor (`DUCK_BG_MUSIC_FACTOR`) to background music when any voiceovers are present. It does not dynamically fade volume based on precise voiceover timing.
+- **Text Rendering:** Relies heavily on **ImageMagick** being correctly installed and configured in the system PATH. If ImageMagick fails, text elements will be **replaced by black rectangles** (with a warning in the console). Ensure specified fonts are installed on your system.
+- **Animation Performance:** Complex animations applied to many elements, especially on high-resolution videos, can significantly increase rendering time as they are processed frame-by-frame.
+- **MoviePy Version:** The script is currently set up with `moviepy==1.0.3` due to user environment workarounds. Using the latest MoviePy (2.x) is generally recommended but may require resolving installation issues. Some minor incompatibilities might exist with v1.0.3.
+
+## Troubleshooting
+
+- **Check Console Output:** Carefully read all messages printed in the terminal. Warnings (`Warning: ...`) and errors (`Error: ...`, `FATAL ERROR: ...`, tracebacks) provide crucial clues.
+- **`FileNotFoundError`:** Double-check all local file paths (`src`) in your JSON. Ensure they are correct relative to where you run the script, or use valid absolute paths. Check for typos.
+- **ImageMagick / TextClip Errors / Black Text:** Ensure ImageMagick is installed correctly (including legacy utilities + PATH) and **restart** your terminal/computer. Test `magick -version` in the terminal. If text still fails, check font names are correct and installed.
+- **TTS Errors (`gTTS`):** Ensure `pip install gTTS` was successful and you have an active internet connection when running the script with TTS elements. Check the specified language code.
+- **Download/Cache Errors:** Check the URL is correct and accessible. Ensure the `asset_cache` directory is writable. Try deleting the `asset_cache` folder to force redownloads.
+- **Slow Rendering:** Reduce video `resolution`/`quality`, simplify `animation` objects, use fewer elements per scene, or shorten scene durations.
+- **Black Background Showing:** Usually means elements failed to load/render (check console for errors related to specific elements), or elements have transparency (like PNGs), or elements don't cover the full frame due to `size`/`position`.
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome! Please feel free to open an issue or submit a Pull Request on the GitHub repository.
+
+## License
+
+This project is likely licensed under the MIT License (or specify your chosen license). Consider adding a `LICENSE` file to your repository.
+
+Sources and related content
